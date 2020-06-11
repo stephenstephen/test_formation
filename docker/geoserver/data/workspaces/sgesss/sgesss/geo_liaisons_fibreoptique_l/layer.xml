@@ -1,0 +1,15 @@
+<layer>
+  <name>geo_liaisons_fibreoptique_l</name>
+  <id>LayerInfoImpl--179a61eb:168856849b3:-7843</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--179a61eb:168856849b3:-405e</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--179a61eb:168856849b3:-7844</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

@@ -1,0 +1,15 @@
+<layer>
+  <name>v_pap_commerce_carto</name>
+  <id>LayerInfoImpl-484a0aa7:171d06218eb:-7ffe</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-484a0aa7:171d06218eb:-6072</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-484a0aa7:171d06218eb:-7fff</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

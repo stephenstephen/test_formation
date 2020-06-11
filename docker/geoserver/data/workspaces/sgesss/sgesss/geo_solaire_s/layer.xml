@@ -1,0 +1,15 @@
+<layer>
+  <name>geo_solaire_s</name>
+  <id>LayerInfoImpl--179a61eb:168856849b3:-76ce</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--5d72e75c:166a6c22d9a:-7fd8</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--179a61eb:168856849b3:-76cf</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

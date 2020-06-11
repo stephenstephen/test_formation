@@ -1,0 +1,12 @@
+<coverageStore>
+  <id>CoverageStoreInfoImpl-12a4a84b:16c092b04a4:-7ffd</id>
+  <name>rasters</name>
+  <description>Imagerie du projet</description>
+  <type>ImageMosaic</type>
+  <enabled>true</enabled>
+  <workspace>
+    <id>WorkspaceInfoImpl-12a4a84b:16c092b04a4:-7fff</id>
+  </workspace>
+  <__default>false</__default>
+  <url>file:workspaces/rasters/data</url>
+</coverageStore>

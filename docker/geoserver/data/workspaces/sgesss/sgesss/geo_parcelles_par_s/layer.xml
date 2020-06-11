@@ -1,0 +1,15 @@
+<layer>
+  <name>geo_parcelles_par_s</name>
+  <id>LayerInfoImpl-54597bfc:169f7517550:-7e79</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-54597bfc:169f7517550:-7e78</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-54597bfc:169f7517550:-7e7a</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

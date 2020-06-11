@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StyledLayerDescriptor version="1.0.0"
+  xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.0.0/StyledLayerDescriptor.xsd"
+  xmlns="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc"
+  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <NamedLayer>
+    <Name>ligne_region</Name>
+    <UserStyle>
+      <Title>Nouvelle ligne région</Title>
+      <FeatureTypeStyle>
+     <Rule>
+       <Name>Souterrain</Name>
+       <ogc:Filter>
+         <ogc:PropertyIsEqualTo>
+           <ogc:PropertyName>type</ogc:PropertyName>
+           <ogc:Literal>Souterrain</ogc:Literal>
+         </ogc:PropertyIsEqualTo>
+       </ogc:Filter>
+       <LineSymbolizer>
+         <Stroke>
+           <CssParameter name="stroke">#00FF40</CssParameter>
+           <CssParameter name="stroke-width">3</CssParameter>
+           <CssParameter name="stroke-dasharray">5 2</CssParameter>
+         </Stroke>
+       </LineSymbolizer>
+     </Rule>
+   </FeatureTypeStyle>
+   <FeatureTypeStyle>
+     <Rule>
+       <Name>Aérien</Name>
+       <ogc:Filter>
+         <ogc:PropertyIsEqualTo>
+           <ogc:PropertyName>type</ogc:PropertyName>
+           <ogc:Literal>Aerien</ogc:Literal>
+         </ogc:PropertyIsEqualTo>
+       </ogc:Filter>
+       <LineSymbolizer>
+         <Stroke>
+           <CssParameter name="stroke">#00FF40</CssParameter>
+           <CssParameter name="stroke-width">3</CssParameter>
+         </Stroke>
+       </LineSymbolizer>
+     </Rule>
+   </FeatureTypeStyle>
+    </UserStyle>
+  </NamedLayer>
+</StyledLayerDescriptor>

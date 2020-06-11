@@ -1,0 +1,15 @@
+<layer>
+  <name>geo_liaisons_l</name>
+  <id>LayerInfoImpl-63118b2:1705256e59b:-7ffa</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-3853e94f:168288fbe65:-628d</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-63118b2:1705256e59b:-7ffb</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

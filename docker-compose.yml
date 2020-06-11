@@ -1,0 +1,133 @@
+# ******************* Important *******************
+#
+# Environnement de développement du SGESSS
+#
+# Pour environnement host sous Ubuntu:
+# - Modifier le fichier /etc/default/grub (sudo vim /etc/default/grub)
+# - Ajouter transparent_hugepage=never au paramètre GRUB_CMDLINE_LINUX_DEFAULT (GRUB_CMDLINE_LINUX_DEFAULT="transparent_hugepage=never")
+#   Ajouter cgroup_enable=memory swapaccount=1 au paramètre GRUB_CMDLINE_LINUX (GRUB_CMDLINE_LINUX="cgroup_enable=memory swapaccount=1")
+# - Lancer "sudo update-grub"
+# - Modifier le fichier /etc/sysctl.conf (sudo vim /etc/sysctl.conf)
+# - Ajouter les lignes suivantes
+#   vm.swappiness=0
+#   vm.overcommit_memory=1
+#   fs.inotify.max_user_watches=524288
+# - (La troisième ligne est facultative, seulement nécessaire pour la gestions des fichiers dans VSCode avec npm et composer)
+# - Redémarrer la machine (sudo shutdown -r now)
+#
+# - Pour exécuter les commandes composer, npm et php (dont php artisan), vous devez entrer dans le container php-nginx:
+#   docker exec -it sgesss_php-nginx_1 bash
+#   composer et npm sont déjà installés dans le container de même de l'éxécutable wkhtml2pdf
+#   Le répertoire par défaut est celui de laravel.
+#   De cette manière, nous nous assurons que tous les développeurs utilisent les mêmes version de composer et npm
+#   Pour sortir du container, tapez simplement "exit"
+#
+# **************************************************
+
+
+version: "3.7"
+volumes:
+  postgis-data:
+  geoserver-data:
+  redis-data:
+  # sgesss-db-backups:
+  #   external: true
+networks:
+  frontend:
+  backend:
+services:
+  php-nginx:
+    # build:
+    #   context: ./docker/php-nginx
+    #   dockerfile: ./php-nginx.dockerfile
+    image: cges/dev_php-nginx:1.0.24
+    depends_on:
+      - postgis
+      - redis
+      - geoserver
+    working_dir: /var/www/app
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www/app
+      - ./docker/php-nginx/config/php.ini:/usr/local/etc/php/php.ini
+      # - sgesss-db-backups:/remote_backups
+    networks:
+      - frontend
+      - backend
+    extra_hosts:
+      - "sgesss.local:127.0.0.1"
+    environment:
+      APP_ENV: local
+      CONTAINER_ROLE: app
+
+  queue:
+    image: cges/dev_php-nginx:1.0.24
+    depends_on:
+      - php-nginx
+      - postgis
+      - redis
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www/app
+      - ./docker/php-nginx/config/php.ini:/usr/local/etc/php/php.ini
+    networks:
+      - backend
+    environment:
+      APP_ENV: local
+      CONTAINER_ROLE: queue
+
+  postgis:
+    # build:
+    #   context: ./docker/postgis
+    #   dockerfile: ./postgis.dockerfile
+    image: cges/dev_postgis:1.0.9
+    volumes:
+      - postgis-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./docker/postgis/postgis.env
+    networks:
+      - backend
+# ******************* Important ****************************************
+#
+# L'image geoserver contient tous les fichiers de configuration des sources de données, des couches et des symbolisations
+# Lorsqu'une nouvelle version de l'image est disponible, il faut éliminer le container et le volume docker localement:
+# docker container rm -f sgesss_geoserver_1
+# docker volume rm -f sgesss_geoserver-data
+# Si vous avez besoin de l'imagerie, vous pouvez ajouter la ligne suivante à la section volumes:
+# - /repertoire_local/rasters:/opt/geoserver/data_dir/workspaces/rasters/data
+# Les images sont disponibles à https://www.dropbox.com/sh/xnhykjkxtd4f6ul/AACDOMynjDuRSvycEK-ShX77a?dl=0 et le mot de passe est SGESSS_Rasters
+# **********************************************************************
+# *********    Attention de ne pas ajouter cette ligne à git, elle est liée à votre configuration locale    *********
+# **********************************************************************
+  geoserver:
+    # build:
+    #   context: ./docker/geoserver
+    #   dockerfile: ./geoserver.dockerfile
+    image: cges/dev_geoserver:1.0.16
+    depends_on:
+      - postgis
+    volumes:
+      - geoserver-data:/opt/geoserver/data_dir
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./docker/geoserver/geoserver.env
+    networks:
+      - backend
+  redis:
+    # build:
+    #   context: ./docker/redis
+    #   dockerfile: ./redis.dockerfile
+    image: cges/dev_redis:1.0.5
+    sysctls:
+      - net.core.somaxconn=511
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - backend

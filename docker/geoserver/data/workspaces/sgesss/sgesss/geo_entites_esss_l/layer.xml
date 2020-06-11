@@ -1,0 +1,15 @@
+<layer>
+  <name>geo_entites_esss_l</name>
+  <id>LayerInfoImpl--179a61eb:168856849b3:-7852</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-3853e94f:168288fbe65:-6290</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--179a61eb:168856849b3:-7853</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

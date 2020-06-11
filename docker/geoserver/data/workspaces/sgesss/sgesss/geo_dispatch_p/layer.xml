@@ -1,0 +1,15 @@
+<layer>
+  <name>geo_dispatch_p</name>
+  <id>LayerInfoImpl--179a61eb:168856849b3:-7856</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--5d72e75c:166a6c22d9a:-7fe2</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--179a61eb:168856849b3:-7857</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

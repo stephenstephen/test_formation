@@ -1,0 +1,15 @@
+<layer>
+  <name>geo_liaisons_man_basfond_p</name>
+  <id>LayerInfoImpl--179a61eb:168856849b3:-77d6</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--179a61eb:168856849b3:-5a85</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--179a61eb:168856849b3:-77d7</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

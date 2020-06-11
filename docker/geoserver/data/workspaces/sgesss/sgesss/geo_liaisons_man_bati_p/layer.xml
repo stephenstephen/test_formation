@@ -1,0 +1,15 @@
+<layer>
+  <name>geo_liaisons_man_bati_p</name>
+  <id>LayerInfoImpl--179a61eb:168856849b3:-7719</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--179a61eb:168856849b3:-5345</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--179a61eb:168856849b3:-771a</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

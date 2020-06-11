@@ -1,0 +1,15 @@
+<layer>
+  <name>geo_infras_benintel_l</name>
+  <id>LayerInfoImpl--179a61eb:168856849b3:-f86</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--179a61eb:168856849b3:-f8a</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--179a61eb:168856849b3:-f87</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

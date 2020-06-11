@@ -1,0 +1,15 @@
+<layer>
+  <name>geo_donnees_climat_p</name>
+  <id>LayerInfoImpl--179a61eb:168856849b3:-785a</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--179a61eb:168856849b3:-5cc9</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--179a61eb:168856849b3:-785b</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

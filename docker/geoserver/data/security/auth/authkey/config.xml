@@ -1,0 +1,6 @@
+<usernamePassword>
+  <id>746cfc17:16bfa67800d:-7ffe</id>
+  <name>authkey</name>
+  <className>org.geoserver.security.auth.UsernamePasswordAuthenticationProvider</className>
+  <userGroupServiceName>dbusers</userGroupServiceName>
+</usernamePassword>

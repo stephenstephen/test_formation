@@ -1,0 +1,15 @@
+<layer>
+  <name>geo_liaisons_chambrejonction_s</name>
+  <id>LayerInfoImpl--179a61eb:168856849b3:-7846</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-3853e94f:168288fbe65:-628e</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--179a61eb:168856849b3:-7847</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

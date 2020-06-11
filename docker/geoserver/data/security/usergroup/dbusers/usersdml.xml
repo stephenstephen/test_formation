@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <comment>DML statements for user database</comment>
+
+  <entry key="users.count">
+	select count(*) from users 
+  </entry>
+
+  <entry key="users.all">
+	select email as name,password,enabled from users 
+  </entry>
+  <entry key="users.keyed">
+	select password,enabled from users where email = ?
+  </entry>
+  <entry key="users.insert">
+	insert into  users(email ,password,enabled) values (?,?,?)
+  </entry>
+  <entry key="users.update">
+	update users set password = ?, enabled = ? where email = ?
+  </entry>
+  <entry key="users.delete">
+	delete from  users where email = ?
+  </entry>
+  
+  <entry key="users.deleteAll">
+	delete from  users 
+  </entry>
+  
+
+  <entry key="userprops.all">
+	select email as username,propname,propvalue from  user_props 
+  </entry>
+  <entry key="userprops.selectForUser">
+	select propname,propvalue from  user_props where email = ?
+  </entry>
+  <entry key="userprops.userPropsForGroup">
+		select p.email as username,p.propname,propvalue from  user_props p, group_members m where m.groupname= ? and m.email = p.email
+  </entry>  
+  <entry key="userprops.deleteForUser">
+	delete from user_props where email=?
+  </entry>
+  <entry key="userprops.insert">
+	insert into user_props(email,propname,propvalue) values (?,?,?)
+  </entry>
+  <entry key="userprops.deleteAll">
+	delete from user_props 		
+  </entry>
+  
+    <!-- since GeoServer version 2.3.0 -->  
+  <entry key="user.usersHavingProperty">
+    select u.email as name,u.password,u.enabled from users u ,user_props p where u.email=p.email and p.propname = ? 
+  </entry>
+    <entry key="userprops.usersHavingProperty">
+    select p.email as username,p.propname,p.propvalue from user_props p  where exists (select p1.email from user_props p1 where p.email=p1.email and p1.propname = ?) 
+  </entry> 
+  <entry key="userprops.userCountHavingProperty">
+    select count(*) from user_props p where  p.propname = ? 
+  </entry>
+    
+  <entry key="user.usersNotHavingProperty">
+    select u.email name,u.password,u.enabled from users u  where not exists (select p.email from user_props p where u.email=p.email and p.propname = ?) 
+  </entry>
+  <entry key="userprops.usersNotHavingProperty">
+    select p.email as username,p.propname,p.propvalue from user_props p  where not exists (select p1.email from user_props p1 where p.email=p1.email and p1.propname = ?) 
+  </entry>  
+  <entry key="userprops.userCountNotHavingProperty">
+    select count(*) from users u  where not exists (select p.email from user_props p where u.email=p.email and p.propname = ?) 
+  </entry>
+      
+   <entry key="user.usersHavingPropertyValue">
+    select u.email as name,u.password,u.enabled from users u ,user_props p where u.email=p.email and p.propname=? and p.propvalue=? 
+  </entry>
+  <entry key="userprops.usersHavingPropertyValue">
+    select p.email as username,p.propname,p.propvalue from user_props p  where exists (select p1.email from user_props p1 where p.email=p1.email and p1.propname = ? and p1.propvalue=?) 
+  </entry>    
+  <entry key="userprops.userCountHavingPropertyValue">
+    select count(*) from user_props p where  p.propname = ? and p.propvalue = ? 
+  </entry>      
+        
+  <!--  end GeoServer version 2.3.0 -->  
+  
+  
+  <entry key="groups.count">
+	select count(*) from groups
+  </entry>
+  <entry key="groups.all">
+	select name,enabled from groups
+  </entry>
+  <entry key="groups.keyed">
+	select enabled from groups where name = ?
+  </entry>
+  <entry key="groups.insert">
+	insert into  groups(name ,enabled) values (?,?)
+  </entry>
+  <entry key="groups.update">
+	update groups set  enabled = ? where name = ?
+  </entry>
+  <entry key="groups.delete">
+	delete from  groups where name = ?
+  </entry>
+  <entry key="groups.deleteAll">
+	delete from  groups 
+  </entry>
+  
+  
+
+  <entry key="groupmembers.groupsForUser">
+	select m.groupname,g.enabled from group_members m, groups g where m.email = ? and m.groupname=g.name
+  </entry>
+  <entry key="groupmembers.usersForGroup">
+	select m.email as username,u.password,u.enabled from group_members m, users u where m.groupname = ? and m.email = u.email
+  </entry>
+  <entry key="groupmembers.insert">
+	insert into group_members(groupname,email) values (?,?)
+  </entry>
+  <entry key="groupmembers.delete">
+	delete from group_members where groupname=? and email = ?
+  </entry>
+  <entry key="groupmembers.deleteGroup">
+	delete from group_members where groupname=? 
+  </entry>
+  <entry key="groupmembers.deleteUser">
+	delete from group_members where email = ?
+  </entry>
+  <entry key="groupmembers.deleteAll">
+	delete from group_members 
+  </entry>
+	  
+</properties>
+
