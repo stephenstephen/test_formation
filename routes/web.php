@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.app');
 });
+
+// Route::get('/contact', function () {
+//     return view('contact');
+// })->name('contact');
+
+// Route::get('/user', function () {
+//     return view('user');
+// })->name('user');
+
+Route::livewire('/', 'welcome');
+Route::livewire('/contact', 'contact')->name('contact');
+Route::livewire('/user', 'user')->name('user');

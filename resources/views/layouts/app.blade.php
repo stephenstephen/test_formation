@@ -18,7 +18,7 @@
         <div class="antialiased text-gray-900">
             <div class="bg-gray-200 min-h-screen">
                 <x-navbar></x-navbar>
-                @livewire('contact')
+                @yield('content')
                 
             </div>
         </div>

@@ -3,7 +3,8 @@
 <header class="bg-gray-900 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3" x-data="{ isOpen: false }">
     <div class="flex items-center justify-between px-4 py-3 sm:p-0">
       <div>
-        <img class="h-8" src="/img/logo-inverted.svg" alt="Workcation">
+        <a href="/"><img class="h-8" src="/img/logo-inverted.svg" alt="Workcation"></a>
+        
       </div>
       <div class="sm:hidden">
         <button x-on:click="isOpen = !isOpen" type="button" class="block text-gray-500 hover:text-white focus:text-white focus:outline-none">
@@ -16,8 +17,8 @@
     </div>
     <nav :class="isOpen ? 'block' : 'hidden'" class="sm:block">
       <div class="px-2 pt-2 pb-4 sm:flex sm:p-0">
-        <a href="#" class="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800">Contact</a>
-        <a href="#" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">User</a>
+        <a href="{{ route('contact') }}" class="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800">Contact</a>
+        <a href="{{ route('user') }}" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">User</a>
         <a href="#" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2">Setting</a>
         
         <x-accountDropdown></x-accountDropdown>
